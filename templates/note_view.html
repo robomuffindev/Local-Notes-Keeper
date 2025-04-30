@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}{{ note.title }} - LocalNotes{% endblock %}
+
+{% block content %}
+<div class="note-view">
+    <div class="note-header">
+        <h2>{{ note.title }}</h2>
+        <div class="note-meta">
+            <span>Created: {{ note.created_at|format_datetime }}</span>
+            <span>Modified: {{ note.modified_at|format_datetime }}</span>
+        </div>
+        <div class="note-actions">
+            <button id="copy-btn" class="btn">Copy</button>
+            <a href="{{ url_for('edit_note', note_id=note.id) }}" class="btn">Edit</a>
+            <a href="{{ url_for('dashboard') }}" class="btn">Back</a>
+        </div>
+    </div>
+    
+    <div class="note-content" id="note-content">
+        {{ note.content|nl2br }}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.getElementById('copy-btn').addEventListener('click', function() {
+        const content = document.getElementById('note-content').innerText;
+        navigator.clipboard.writeText(content).then(function() {
+            alert('Note copied to clipboard!');
+        }, function(err) {
+            alert('Could not copy text: ' + err);
+        });
+    });
+</script>
+{% endblock %}
