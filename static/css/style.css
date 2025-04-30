@@ -452,3 +452,20 @@ footer {
         width: 90%;
     }
 }
+
+/* Note content styles - add this to your style.css file */
+.note-content {
+    line-height: 1.8;
+    white-space: pre-wrap;
+    text-align: left;
+    /* The following ensures proper text rendering without extra spacing */
+    display: inline-block;
+    width: 100%;
+}
+
+/* Make sure br tags work properly */
+.note-content br {
+    display: block;
+    content: "";
+    margin-top: 0.5em;
+}

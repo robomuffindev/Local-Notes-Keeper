@@ -34,9 +34,11 @@ def format_size(bytes):
         i += 1
     return f"{bytes:.1f}{size_names[i]}"
 
+
 def nl2br(value):
     if not value:
         return ""
+    # Replace newlines with <br> tags without adding extra whitespace
     return value.replace('\n', '<br>')
 
 app.jinja_env.filters['format_datetime'] = format_datetime

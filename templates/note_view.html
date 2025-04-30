@@ -17,17 +17,18 @@
         </div>
     </div>
     
-    <div class="note-content" id="note-content">
-        {{ note.content|nl2br }}
-    </div>
+    <div class="note-content" id="note-content">{{ note.content|nl2br }}</div>
 </div>
 {% endblock %}
 
 {% block scripts %}
 <script>
     document.getElementById('copy-btn').addEventListener('click', function() {
-        const content = document.getElementById('note-content').innerText;
-        navigator.clipboard.writeText(content).then(function() {
+        // Get the raw note content directly from the server-side data
+        const rawContent = `{{ note.content|replace('\n', '\\n')|replace('`', '\\`')|replace("'", "\\'") }}`;
+        
+        // Use the raw content for copying, not the HTML-rendered content
+        navigator.clipboard.writeText(rawContent).then(function() {
             alert('Note copied to clipboard!');
         }, function(err) {
             alert('Could not copy text: ' + err);
