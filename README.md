@@ -1,8 +1,8 @@
-# LocalNotes
+# Local Notes Keeper
 
-LocalNotes is a web-based note-taking application that runs on your local network. It allows you to create, edit, and manage notes and files from any device on your network without storing your data online.
+Local Notes Keeper is a web-based note-taking application that runs on your local network. It allows you to create, edit, and manage notes and files from any device on your network without storing your data online.
 
-![LocalNotesApp](https://github.com/user-attachments/assets/e1677298-039a-4b5d-a109-bd94504c7a6c)
+![Local Notes KeeperApp](https://github.com/user-attachments/assets/e1677298-039a-4b5d-a109-bd94504c7a6c)
 
 
 ## Features
